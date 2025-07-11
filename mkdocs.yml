@@ -1,0 +1,120 @@
+site_name: Pymdown Embedly
+copyright: "Copyright &copy; 2025 taiseiue All rights reserved."
+author: taiseiue
+
+docs_dir: "docs"
+#site_url: "https://lantana.wsoft.ws/"
+
+repo_name: "GitHub"
+repo_url: "https://github.com/taiseiue/pymdown-embedly/"
+edit_uri: "blob/main/docs/"
+edit_uri_template: "blob/main/docs/{path}"
+
+#extra_javascript:
+#  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+# ↓は、MermaidPreCompilerを使わない場合に使う
+#  - https://cdn.jsdelivr.net/npm/mermaid@11.4.0/dist/mermaid.min.js
+
+# logo: favicon.png
+# favicon: favicon.png
+# image: favicon.png
+
+disable_darkmode: true
+
+# share:
+#   twitter_params: "&via=taiseiue&related=taiseiue"
+
+theme:
+  name: lantana
+  locale: ja
+
+plugins:
+  - search:
+      lang: "ja"
+      min_search_length: 2
+  # - git-authors:
+  #     show_email_address: true
+  #     count_empty_lines: true
+  #     fallback_to_empty: false
+  #     enabled: true
+  # - git-revision-date
+  # - awesome-pages
+  # - git-authors:
+  #     show_email_address: true
+  #     count_empty_lines: true
+  #     fallback_to_empty: false
+  #     enabled: true
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: en
+          name: English
+          build: true
+          site_name: "Lantana"
+          theme:
+            locale: en
+            untranslated_message: "This page is not available in English."
+        - locale: ja
+          default: true
+          name: 日本語
+          build: true
+          site_name: "Lantana"
+          theme:
+            locale: ja
+          nav_translations:
+            Contribute: 貢献
+            CheatSheet: チートシート
+            Extensions: 拡張機能
+            Tutrial: チュートリアル
+
+markdown_extensions:
+  - toc:
+      slugify: !!python/name:lantana.extensions.fixed_toc.slugify
+      separator: "-"
+      permalink: true
+  - lantana
+  - lantana.alerts2
+  - lantana.selector
+  - attr_list
+  - lantana.cards
+  - lantana.mtables
+  - mdx_wsid
+  - footnotes
+  - embedly
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - admonition
+  - pymdownx.arithmatex:
+      generic: true
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
+  - pymdownx.snippets
+  - pymdownx.critic
+  - pymdownx.caret:
+      smart_insert: false
+  - pymdownx.keys
+  - pymdownx.mark:
+      smart_mark: false
+  - pymdownx.tilde:
+      smart_delete: false
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.magiclink
+  - pymdownx.striphtml
+  - lantana.link_opennewtab
+  - lantana.alerts
+  - lantana.accordion
+  - lantana.codeblock_copybtn
+  - lantana.mermaid_precompile
+  - lantana.tabs
